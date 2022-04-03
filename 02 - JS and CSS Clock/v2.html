@@ -64,49 +64,36 @@
       position: absolute;
       top: 50%;
       transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: 0.5s all;
+      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
 
   </style>
-
+    
   <script>
-    let secondHand = document.querySelector('.second-hand');
-    let minuteHand = document.querySelector('.min-hand');
-    let hourHand = document.querySelector('.hour-hand');
-    secondHand.time = 0;
-    minuteHand.time = 0;
-    hourHand.time = 0;
+    let seconds = 0;
+    hands = {
+        "hour" : document.querySelector('.hour-hand'),
+        "minute" : document.querySelector('.min-hand'),
+        "second" : document.querySelector('.second-hand')
+    }
 
     function rotateClock() {
-      if (secondHand.time >= 60) {
-        // Minute
-        minuteHand.time++;
-        hourHand.time++;
-        secondHand.time = 0;
-        rotateHand(minuteHand, 60);
-        rotateHand(hourHand, 60*60)
-      } else {
-        // Second
-        secondHand.time++;
-        rotateHand(secondHand, 60);
-      } 
-      
-      if (minuteHand.time >= 60) {
-        // Hour elapsed
-        minuteHand.time = 0;
-        rotateHand(hourHand);
-      }
+        seconds++;
+        rotateHand(hands["second"], 60);
+        rotateHand(hands["minute"], 3600);
+        rotateHand(hands["hour"], 216000)
 
-      if (hourHand.time > 60*60) {
-        hourHand.time = 0;
-      }
     }
 
-    function rotateHand(hand, rotations) {
-      hand.style.transform = `rotate(${360/rotations*hand.time}deg)`;
+    function rotateHand(hand, rotate) {
+        hand.style.transform = `rotate(${90+360/rotate*seconds}deg)`;
     }
 
-    setInterval(rotateClock, 100);
+
+    window.setInterval(rotateClock, 1);
   </script>
 </body>
 </html>
