@@ -24,11 +24,13 @@
     }
 
     .panels {
+      display:flex;
       min-height: 100vh;
       overflow: hidden;
     }
 
     .panel {
+      flex: 20%;
       background: #6B0F9C;
       box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
       color: white;
@@ -105,6 +107,22 @@
   </div>
 
   <script>
+    let panels = document.querySelector(".panels");
+    let prevPanel;
+    function handlePanels(e) {
+      if (e.srcElement === prevPanel) {
+        // Matches x% flex-width and reverses the size of it
+        e.srcElement.style.flex.match(/\d+%/) ? e.srcElement.style.flex = "" : e.srcElement.style.flex = "100%";
+      } else {
+        if(prevPanel) {   
+          prevPanel.style.flex = "";        
+        }
+        e.srcElement.style.flex = "100%";
+      }
+      prevPanel = e.srcElement;  
+    }
+    
+    panels.addEventListener("click", handlePanels);
 
   </script>
 
