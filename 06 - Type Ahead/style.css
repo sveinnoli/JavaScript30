@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  background: #ffc600;
+  background: #457796;
   font-family: 'helvetica neue';
   font-size: 20px;
   font-weight: 200;
@@ -20,15 +20,27 @@ input {
   margin: 50px auto;
 }
 
+.search-form > .sort-by {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.search-form > .distance {
+  font-weight: bold;
+  font-size: 20px;
+  border: 10px solid #F7F7F7;
+  border-radius: 5px;
+}
+
 input.search {
-  margin: 0;
+  margin: 0 0 10px;
   text-align: center;
   outline: 0;
   border: 10px solid #F7F7F7;
   width: 120%;
   left: -10%;
   position: relative;
-  top: 10px;
+  /* top: 10px; */
   z-index: 2;
   border-radius: 5px;
   font-size: 40px;
@@ -39,6 +51,8 @@ input.search {
   margin: 0;
   padding: 0;
   position: relative;
+  display:flex; 
+  flex-direction: column;
   /*perspective: 20px;*/
 }
 
@@ -49,13 +63,18 @@ input.search {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
   margin: 0;
   padding: 20px;
+  font-size: 20px;
   transition: background 0.2s;
-  display: flex;
   justify-content: space-between;
   text-transform: capitalize;
+  flex: 33%;
 }
 
-.suggestions li:nth-child(even) {
+
+
+
+
+/* .suggestions li:nth-child(even) {
   transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
   background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%);
 }
@@ -63,11 +82,13 @@ input.search {
 .suggestions li:nth-child(odd) {
   transform: perspective(100px) rotateX(-3deg) translateY(3px);
   background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
-}
+} */
 
 span.population {
   font-size: 15px;
 }
+
+
 
 .hl {
   background: #ffc600;
