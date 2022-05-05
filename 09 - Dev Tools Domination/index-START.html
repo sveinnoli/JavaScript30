@@ -17,29 +17,57 @@
       p.style.fontSize = '50px';
     }
 
+    let p = document.querySelector("p");
     // Regular
+    console.log('hello');
 
     // Interpolated
+    console.log('Hello I am a %s string!', "(*/ω＼*)");
 
     // Styled
+    console.log("%c (*/ω＼*)", "font-size:50px;color:green;background:black;")
 
     // warning!
+    console.warn("NOOO")
 
     // Error :|
+    console.error("(╯°□°）╯︵ ┻━┻")
 
     // Info
+    console.info("Fun fact fun facts are not fun")
 
     // Testing
+    console.assert(1 === 1, "Nah")
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.dir(p);
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`)
+      console.log(`This is ${dog.name} is ${dog.age} years old`);
+      console.log(`This is ${dog.name} is ${dog.age*7} dog years old`);
+      console.groupEnd(`${dog.name}`)
+    })
 
     // counting
+    console.count("ges")
+    console.count("ges")
+    console.count("ges")
 
     // timing
+    console.time("Fetching data");
+    fetch('https://api.github.com/users/sveinnoli')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('Fetching data');
+        console.log(data);
+      })
+
+    console.table(dogs)
 
   </script>
 </body>
