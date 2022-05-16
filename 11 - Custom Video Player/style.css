@@ -58,6 +58,11 @@ body {
   border-color: #ffc600;
 }
 
+.player__button[name='fullscreen']:before {
+  content: '\26F6';
+  font-size: 20px;
+}
+
 .player__slider {
   width: 10px;
   height: 30px;
